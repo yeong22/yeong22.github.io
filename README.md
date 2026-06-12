@@ -11,7 +11,7 @@
 
   Search  TODO  for the placeholders to fill in (photo, links, thumbnails).
 -->
-<!DOCTYPE html>
+# <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
