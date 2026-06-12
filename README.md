@@ -10,8 +10,8 @@
   3. Push → live at  https://<your-username>.github.io/
 
   Search  TODO  for the placeholders to fill in (photo, links, thumbnails).
+<!DOCTYPE html>
 -->
-# <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
