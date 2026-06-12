@@ -145,10 +145,13 @@ const SITE = {
 
   /* ---------- 2. INTRO ---------- */
   introHeading: "Hi, I'm Yewon",
+  introLead: "",
   introParagraphs: [
     "I am an integrated MS-PhD student in the Department of Integrative Medicine at Yonsei University, advised by Prof. Sungjun Kim, and an AI Researcher at the Institute for Innovation in Digital Healthcare (Severance Hospital). My goal is to develop reliable and trustworthy medical AI models that hold up under the demands of real-world clinical deployment.",
     "My recent work centers on <strong>LLM alignment, auditability, and evaluation metrics</strong> for clinical use — asking not just whether a model is right, but whether its reasoning can be inspected and defended. Earlier, I developed explainable and interpretable methods for medical imaging and longitudinal EHR data using approaches such as SHAP and Cox modeling. I am also drawn to causal inference, epidemiology, clinical LLMs, and automated systematic reviews and meta-analysis.",
-  ]
+  ],
+  introCallout: [],
+
   /* ---------- 3. RESEARCH INTERESTS ---------- */
   interests: [
     { t:"Trustworthy & Auditable Medical AI", d:"LLM alignment, auditability, and evaluation metrics built for clinical deployment." },
@@ -315,11 +318,14 @@ function renderContent(){
   let html = '';
 
   // intro
+  const lead = SITE.introLead ? `<p class="lead">${SITE.introLead}</p>` : '';
+  const callout = (SITE.introCallout && SITE.introCallout.length)
+    ? `<div class="callout">${SITE.introCallout.map(p=>`<p>${p}</p>`).join('')}</div>` : '';
   html += `<div class="block" id="about">
     <h2>${SITE.introHeading}</h2>
-    <p class="lead">${SITE.introLead}</p>
-    ${SITE.introParagraphs.map(p=>`<p>${p}</p>`).join('')}
-    <div class="callout">${SITE.introCallout.map(p=>`<p>${p}</p>`).join('')}</div>
+    ${lead}
+    ${(SITE.introParagraphs||[]).map(p=>`<p>${p}</p>`).join('')}
+    ${callout}
   </div>`;
 
   // interests
