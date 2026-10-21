@@ -240,13 +240,13 @@ document.getElementById("side").innerHTML = `
     <p class="topic">Researching <b>${SITE.topic}</b></p>
   </div>
   <div class="icons">
-    <a href="${SITE.links.github}"${ext(SITE.links.github)} aria-label="GitHub">${svg("github")}</a>
-    <a href="${SITE.links.linkedin}"${ext(SITE.links.linkedin)} aria-label="LinkedIn">${svg("linkedin")}</a>
+    <a href="${SITE.links.github}"${ext(SITE.links.github)} aria-label="GitHub" title="GitHub">${svg("github")}</a>
+    <a href="${SITE.links.linkedin}"${ext(SITE.links.linkedin)} aria-label="LinkedIn" title="LinkedIn">${svg("linkedin")}</a>
+    <a href="${SITE.cv}" target="_blank" rel="noopener" aria-label="Curriculum Vitae" title="Curriculum Vitae (PDF)">${svg("cv")}</a>
+    <a href="${SITE.scholar}" target="_blank" rel="noopener" aria-label="Google Scholar" title="Google Scholar">${svg("scholar")}</a>
   </div>
   <a class="mail" id="mail" href="mailto:${SITE.email}" title="Email ${SITE.email} (click also copies the address)">${svg("email")}<span>${SITE.email}</span></a>
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
-  <a class="btn dark" href="${SITE.cv}" target="_blank" rel="noopener">${svg("cv")}Curriculum Vitae</a>
-  <a class="btn light" href="${SITE.scholar}" target="_blank" rel="noopener">${svg("scholar")}Google Scholar</a>
   <div class="side-h">EDUCATION</div>
   ${SITE.education.map(e => `<div class="edu"><div class="d">${e.d}</div><div class="o">${e.o}</div><div class="w">${e.w}</div>${e.x ? `<div class="x">${e.x}</div>` : ""}</div>`).join("")}`;
 
