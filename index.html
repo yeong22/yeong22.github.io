@@ -4,111 +4,105 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Yewon Choi</title>
-<meta name="description" content="Yewon Choi, Ph.D. candidate at Yonsei University College of Medicine, building trustworthy and auditable medical AI: benchmarks, metrics and LLM agents for evidence synthesis and clinical use." />
+<meta name="description" content="Yewon Choi, Ph.D. candidate at Yonsei University College of Medicine, building trustworthy and auditable medical AI." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 <style>
   :root{
-    --side:#f6f3ee; --side-line:#e6e0d6; --bg:#ffffff;
-    --ink:#24211d; --body:#4c4a46; --muted:#8a857c; --line:#e7e3dc;
-    --btn:#4a4337; --btn-ink:#ffffff; --chip:#efebe4; --accent:#1f3864; --accent-soft:#e9eef6;
+    --side:#f3f6fb; --side-line:#dfe6f1; --bg:#ffffff;
+    --ink:#14213d; --body:#3f4654; --muted:#7a8494; --line:#e3e8ef;
+    --navy:#1f3864; --blue:#2e70df; --chip:#e8eef8; --soft:#f2f7ff; --soft-line:#cfe0fb;
     --sans:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
   }
   *{box-sizing:border-box;}
   html{scroll-behavior:smooth;}
   body{margin:0;background:var(--bg);color:var(--body);font:400 15px/1.65 var(--sans);-webkit-font-smoothing:antialiased;overflow-wrap:anywhere;}
-  a{color:var(--accent);text-decoration:none;}
+  a{color:var(--blue);text-decoration:none;}
   a:hover{text-decoration:underline;text-underline-offset:2px;}
   b,strong{color:var(--ink);font-weight:600;}
 
   /* sidebar */
-  aside{position:fixed;inset:0 auto 0 0;width:300px;background:var(--side);border-right:1px solid var(--side-line);
-        overflow-y:auto;padding:44px 26px 30px;}
-  .avatar{width:150px;height:150px;border-radius:50%;overflow:hidden;margin:0 auto 16px;border:3px solid #fff;
-          box-shadow:0 2px 10px rgba(0,0,0,.08);background:#ddd;}
+  aside{position:fixed;inset:0 auto 0 0;width:290px;background:var(--side);border-right:1px solid var(--side-line);
+        overflow-y:auto;padding:48px 26px 30px;}
+  .avatar{width:148px;height:148px;border-radius:50%;overflow:hidden;margin:0 auto 16px;border:3px solid #fff;
+          box-shadow:0 2px 12px rgba(20,33,61,.12);background:#dde4ee;}
   .avatar img{width:100%;height:100%;object-fit:cover;display:block;}
   .who{text-align:center;}
   .who h1{margin:0;font-size:22px;color:var(--ink);font-weight:700;letter-spacing:-.2px;}
-  .who .pos{font-style:italic;color:var(--muted);font-size:14px;margin-top:2px;}
-  .who .aff{font-weight:600;color:var(--body);font-size:13.5px;margin-top:4px;}
-  .who .topic{font-size:13.5px;margin:16px 0 0;}
+  .who .pos{color:var(--muted);font-size:14px;margin-top:2px;}
+  .who .aff{font-weight:600;color:var(--navy);font-size:13.5px;margin-top:4px;line-height:1.45;}
+  .who .topic{font-size:13.5px;margin:14px 0 0;}
   .icons{display:flex;justify-content:center;gap:8px;margin:18px 0 16px;}
   .icons a{width:34px;height:34px;border:1px solid var(--side-line);border-radius:8px;background:#fff;display:grid;place-items:center;}
-  .icons a:hover{border-color:var(--btn);text-decoration:none;}
-  .icons svg{width:16px;height:16px;fill:var(--btn);}
+  .icons a:hover{border-color:var(--navy);text-decoration:none;}
+  .icons svg{width:16px;height:16px;fill:var(--navy);}
   .btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:9px 12px;border-radius:7px;
        font-weight:600;font-size:13.5px;margin-bottom:8px;}
   .btn svg{width:15px;height:15px;}
-  .btn.dark{background:var(--btn);color:var(--btn-ink);} .btn.dark svg{fill:#fff;}
-  .btn.light{background:#fff;color:var(--btn);border:1px solid var(--side-line);} .btn.light svg{fill:var(--btn);}
-  .btn:hover{text-decoration:none;filter:brightness(1.06);}
-  .status{margin:14px 0 0;padding:9px 11px;border-radius:7px;background:#fff;border:1px dashed var(--btn);font-size:12.5px;text-align:center;}
-  .side-h{font-size:11.5px;font-weight:700;letter-spacing:1.2px;color:var(--ink);margin:26px 0 10px;border-top:1px solid var(--side-line);padding-top:18px;}
+  .btn.dark{background:var(--navy);color:#fff;} .btn.dark svg{fill:#fff;}
+  .btn.light{background:#fff;color:var(--navy);border:1px solid var(--side-line);} .btn.light svg{fill:var(--navy);}
+  .btn:hover{text-decoration:none;filter:brightness(1.08);}
+  .side-h{font-size:11.5px;font-weight:700;letter-spacing:1.2px;color:var(--navy);margin:26px 0 10px;border-top:1px solid var(--side-line);padding-top:18px;}
   .edu{margin:0 0 12px;}
   .edu .d{font-weight:600;color:var(--ink);font-size:13px;line-height:1.4;}
   .edu .o{font-size:12.5px;} .edu .w{font-size:12px;color:var(--muted);}
-  nav.toc{margin-top:8px;font-size:13px;line-height:2;}
-  nav.toc a{color:var(--body);}
 
   /* main */
-  main{margin-left:300px;padding:52px 56px 80px;max-width:1040px;}
-  section{margin-bottom:46px;}
-  h2{display:flex;align-items:center;gap:14px;font-size:21px;color:var(--ink);margin:0 0 18px;font-weight:700;}
+  main{margin-left:290px;padding:56px 60px 70px;max-width:1010px;}
+  section{margin-bottom:44px;}
+  h2{display:flex;align-items:center;gap:14px;font-size:21px;color:var(--ink);margin:0 0 16px;font-weight:700;}
   h2::after{content:"";flex:1;height:1px;background:var(--line);}
   p{margin:0 0 12px;}
-  .callout{background:var(--accent-soft);border-radius:8px;padding:12px 16px;color:var(--ink);font-size:14.5px;}
-  .meta-row{display:flex;flex-wrap:wrap;gap:18px;margin-top:12px;font-size:13.5px;color:var(--muted);}
+  .seek{display:inline-block;margin-top:2px;padding:8px 14px;border-radius:8px;background:var(--soft);border:1px solid var(--soft-line);
+        color:var(--navy);font-size:14.5px;}
 
   .news{list-style:none;margin:0;padding:0;}
-  .news li{display:grid;grid-template-columns:92px 1fr;gap:12px;padding:7px 0;border-bottom:1px dashed var(--line);}
+  .news li{display:grid;grid-template-columns:88px 1fr;gap:12px;padding:7px 0;border-bottom:1px dashed var(--line);}
   .news .dt{font-size:12px;font-weight:600;color:var(--muted);letter-spacing:.6px;text-transform:uppercase;padding-top:2px;}
 
-  .tl{position:relative;margin:0;padding:0 0 0 22px;list-style:none;}
-  .tl::before{content:"";position:absolute;left:5px;top:6px;bottom:6px;width:1px;background:var(--line);}
-  .tl li{position:relative;margin:0 0 20px;}
-  .tl li::before{content:"";position:absolute;left:-22px;top:6px;width:9px;height:9px;border-radius:50%;background:#fff;border:2px solid var(--btn);}
-  .tl .when{font-size:11.5px;font-weight:600;letter-spacing:.8px;color:var(--muted);text-transform:uppercase;}
-  .tl .org{font-weight:700;color:var(--ink);}
-  .tl .pos{font-size:14px;}
-  .tl .note{font-size:13.5px;color:var(--muted);}
-
-  .chips{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 18px;}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 10px;}
   .chips button{font:600 12.5px var(--sans);padding:5px 13px;border-radius:999px;border:1px solid var(--side-line);
                 background:#fff;color:var(--body);cursor:pointer;}
-  .chips button.on{background:var(--btn);color:#fff;border-color:var(--btn);}
-  .pub{display:grid;grid-template-columns:190px 1fr;gap:20px;padding:16px;border:1px solid var(--line);border-radius:10px;
-       margin-bottom:14px;background:#fff;transition:box-shadow .2s;}
-  .pub:hover{box-shadow:0 4px 16px rgba(0,0,0,.06);}
-  .thumb{border-radius:6px;overflow:hidden;background:var(--chip);display:grid;place-items:center;min-height:96px;}
-  .thumb.has-img{background:#fff;border:1px solid var(--line);}
-  .thumb img{width:100%;height:100%;max-height:130px;object-fit:contain;background:#fff;display:block;}
-  .thumb span{font-size:11px;font-weight:700;letter-spacing:1.2px;color:var(--muted);text-align:center;padding:10px;}
+  .chips button.on{background:var(--navy);color:#fff;border-color:var(--navy);}
+  .note-eq{font-size:12.5px;color:var(--muted);margin:0 0 14px;}
+  .sub{font-size:12px;font-weight:700;letter-spacing:1px;color:var(--muted);text-transform:uppercase;margin:22px 0 10px;}
+  .pub{display:grid;grid-template-columns:230px 1fr;gap:20px;padding:16px;border:1px solid var(--line);border-radius:10px;
+       margin-bottom:14px;background:#fff;}
+  .pub.key{background:var(--soft);border-color:var(--soft-line);}
+  .pub.noimg{grid-template-columns:1fr;}
+  .pub.wide{grid-template-columns:1fr;gap:14px;}
+  .pub.wide .thumb img{height:auto;max-height:250px;}
+  .thumb{display:block;border-radius:6px;overflow:hidden;background:#fff;border:1px solid var(--line);align-self:start;}
+  .thumb img{width:100%;height:150px;object-fit:contain;display:block;background:#fff;}
+  .thumb:hover{border-color:var(--blue);}
   .pub h3{margin:0 0 6px;font-size:15.5px;line-height:1.4;color:var(--ink);}
-  .venue{display:inline-block;font-size:11.5px;font-weight:700;letter-spacing:.4px;background:var(--chip);color:var(--btn);
-         border-radius:5px;padding:2px 8px;margin-bottom:6px;}
+  .badges{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:6px;}
+  .venue,.role{display:inline-block;font-size:11.5px;font-weight:700;letter-spacing:.3px;border-radius:5px;padding:2px 8px;}
+  .venue{background:var(--chip);color:var(--navy);}
+  .role{background:var(--navy);color:#fff;}
   .authors{font-size:13.5px;}
   .authors .me{font-weight:700;color:var(--ink);text-decoration:underline;text-underline-offset:2px;}
-  .desc{font-size:13.5px;color:var(--body);margin-top:4px;}
-  .links{margin-top:8px;display:flex;flex-wrap:wrap;gap:12px;font-size:13px;font-weight:600;}
-  .note-eq{font-size:12.5px;color:var(--muted);margin:-8px 0 14px;}
+  .desc{font-size:13.5px;margin-top:4px;}
+  .links{margin-top:8px;display:flex;flex-wrap:wrap;gap:14px;font-size:13px;font-weight:600;}
 
-  .list{list-style:none;margin:0;padding:0;}
-  .list li{padding:9px 0;border-bottom:1px dashed var(--line);}
-  .list .h{font-weight:600;color:var(--ink);} .list .m{font-size:13.5px;}
-  footer{margin-left:300px;padding:22px 56px 40px;font-size:12.5px;color:var(--muted);border-top:1px solid var(--line);}
+  .awards{list-style:none;margin:0;padding:0;}
+  .awards li{display:grid;grid-template-columns:88px 1fr;gap:12px;padding:7px 0;border-bottom:1px dashed var(--line);}
+  .awards .dt{font-size:12px;font-weight:600;color:var(--muted);letter-spacing:.6px;padding-top:2px;}
+  footer{margin-left:290px;padding:22px 60px 40px;font-size:12.5px;color:var(--muted);border-top:1px solid var(--line);}
 
   .reveal{opacity:0;transform:translateY(10px);transition:opacity .5s ease,transform .5s ease;}
   .reveal.in{opacity:1;transform:none;}
   .top{position:fixed;right:22px;bottom:22px;width:38px;height:38px;border-radius:50%;border:1px solid var(--line);
-       background:#fff;display:grid;place-items:center;color:var(--btn);font-size:18px;box-shadow:0 2px 8px rgba(0,0,0,.08);}
+       background:#fff;display:grid;place-items:center;color:var(--navy);font-size:18px;box-shadow:0 2px 8px rgba(20,33,61,.1);}
   .top:hover{text-decoration:none;}
 
   @media (max-width: 900px){
     aside{position:static;width:auto;border-right:none;border-bottom:1px solid var(--side-line);padding:32px 22px;}
     main,footer{margin-left:0;padding:32px 20px;}
     .pub{grid-template-columns:1fr;}
-    .news li{grid-template-columns:76px 1fr;}
+    .thumb img{height:auto;max-height:220px;}
+    .news li,.awards li{grid-template-columns:76px 1fr;}
   }
   @media (prefers-reduced-motion: reduce){ .reveal{opacity:1;transform:none;transition:none;} html{scroll-behavior:auto;} }
 </style>
@@ -134,109 +128,90 @@ const SITE = {
     linkedin: "https://www.linkedin.com/in/yewon-c-a61a7425a/",
     email: "mailto:yewon0126@yonsei.ac.kr",
   },
-  status: "Seeking postdoctoral positions starting March 2027",
   education: [
-    { d:"Ph.D. (Integrated M.S.–Ph.D.), Integrative Medicine", o:"Yonsei University College of Medicine", w:"2022 – 2027 (expected Feb)" },
-    { d:"B.S. in AI Healthcare", o:"CHA University · double major in Data Science & Management", w:"2018 – 2022" },
+    { d:"Ph.D., Integrative Medicine", o:"Yonsei University", w:"2022 – Feb 2027 (expected)" },
+    { d:"B.S., AI Healthcare", o:"CHA University", w:"2018 – 2022" },
   ],
 
   about: [
-    "I am a Ph.D. candidate in Integrative Medicine at <b>Yonsei University College of Medicine</b>, advised by Prof. Sungjun Kim, and an AI Researcher at the Institute for Innovation in Digital Healthcare, <b>Severance Hospital</b>. I expect to receive my Ph.D. in February 2027.",
-    "I build <b>trustworthy and auditable medical AI</b>: benchmarks, metrics and LLM agents that check not only what a model decided but whether its reasons match the documented evidence. For systematic reviews I built <b>CsPICO</b>, a citation-screening benchmark with reviewer-documented exclusion reasons, the <b>RA-F1</b> reason-attribution metric, and <b>cKATE</b>, an evidence-guided retrieval method for LLM screening. I also fine-tune compact vision-language models on clinician-corrected rationales, design multi-agent LLM systems for nursing documentation, and validate clinical prediction models on nationwide cohorts and multi-hospital imaging.",
+    "I am a Ph.D. candidate in Integrative Medicine at <b>Yonsei University College of Medicine</b>, advised by Prof. Sungjun Kim, and an AI Researcher at <b>Severance Hospital</b>. I build <b>trustworthy and auditable medical AI</b>: benchmarks, metrics and LLM agents that check whether a model's decision rests on the right evidence. My recent work covers reason-aware screening for systematic reviews (CsPICO), rationale-grounded wound staging with a compact vision-language model (PISR), and clinical risk models validated on nationwide cohorts and multi-hospital imaging.",
   ],
-  callout: "I am looking for a postdoctoral position from <b>March 2027</b> in medical LLM agents, evidence synthesis, or clinical AI evaluation. I will present at <b>EMNLP 2026</b> in Budapest (Oct 24–29) and would be glad to meet.",
-  meta: ["Seoul, Korea", "yewon0126@yonsei.ac.kr"],
+  seek: "I am looking for a postdoctoral position starting <b>March 2027</b>.",
 
   news: [
-    { d:"Oct 2026", t:"<b>CsPICO</b> will be presented at the <i>EMNLP 2026 DocInsights Workshop</i>, Budapest." },
-    { d:"Oct 2026", t:"<b>Cultural Divergence Preservation</b> (co-first author) will be presented at the <i>EMNLP 2026 PANDORA Workshop</i>. <a href=\"https://arxiv.org/abs/2609.29928\" target=\"_blank\" rel=\"noopener\">arXiv</a>" },
-    { d:"Oct 2026", t:"<b>PISR</b> poster at <i>KOSAIM 2026</i>." },
-    { d:"2026", t:"Bladder-cancer radiomics paper published in <i>European Urology Open Science</i>; abstract at <i>EAU Congress 2026</i>." },
-    { d:"2026", t:"Liver-cancer risk stratification paper published in <i>BMC Medical Informatics and Decision Making</i>." },
-    { d:"2026", t:"Co-authored a TMLE study on alcohol and gastric-cancer risk in <i>European Journal of Epidemiology</i>." },
-    { d:"Apr 2025", t:"Started the national R&D project on LLM-based nursing documentation (Ministry of Trade, Industry &amp; Energy, 2025–2029)." },
-    { d:"Mar 2025", t:"Joined the Institute for Innovation in Digital Healthcare, Severance Hospital, as an AI Researcher." },
-    { d:"2025", t:"<b>Best Poster Presentation Award</b> (LLM &amp; Agent Track), KOSAIM 2025." },
-    { d:"2025", t:"Filed a Korean patent application on visual explanation of bladder-cancer grade prediction." },
+    { d:"Oct 2026", t:"<b>CsPICO</b> will be presented at the <i>EMNLP 2026 DocInsights Workshop</i> in Budapest." },
+    { d:"Oct 2026", t:"<b>Cultural Divergence Preservation</b> (co-first author) will be presented at the <i>EMNLP 2026 PANDORA Workshop</i>." },
+    { d:"May 2026", t:"Bladder-cancer grading paper published in <i>European Urology Open Science</i>." },
+    { d:"Mar 2026", t:"Abstract presented at the <i>EAU Congress 2026</i> (<i>European Urology</i>)." },
+    { d:"Jan 2026", t:"Liver-cancer risk paper published in <i>BMC Medical Informatics and Decision Making</i>." },
   ],
 
-  experience: [
-    { w:"2025 – Present", org:"Severance Hospital", pos:"AI Researcher, Institute for Innovation in Digital Healthcare (IIDH)",
-      note:"Working-level lead of the LLM-based nursing-documentation project: multi-agent design, evaluation plan and IRB protocol." },
-    { w:"2022 – Present", org:"Yonsei University College of Medicine", pos:"Graduate Researcher, Medical AI Lab",
-      note:"Cancer risk prediction on nationwide cohorts, medical-imaging AI, LLM evaluation; project manager for three national R&amp;D projects." },
-    { w:"2024 – 2026", org:"VATA Co., Ltd.", pos:"Co-Founder &amp; Co-CEO",
-      note:"Clonefit: 3D body avatar and body composition from 2D photos (iOS/Android). Funded by Naver D2SF, the Ministry of SMEs and Startups, and Yonsei University Graduate School of AI." },
-    { w:"2021 – 2023", org:"Korea AI Medical Healthcare Research Institute", pos:"Researcher, R&amp;D Planning",
-      note:"3D body-scan AI for chronic-disease management; standardization consulting for AI medical devices." },
-  ],
-
-  /* cat: journal | workshop | review | abstract */
+  /* topic: llm | clinical · kind: paper | abstract · key: highlighted first-author work */
+  topics: [["all","All"],["llm","Evidence synthesis & LLM evaluation"],["clinical","Clinical prediction & imaging"]],
   publications: [
-    { cat:"workshop", img:"assets/img/pubs/cspico.jpg",
+    { topic:"llm", kind:"paper", key:true, role:"First author",
+      img:"assets/img/pubs/cspico_thumb.jpg", full:"assets/img/pubs/cspico_full.jpg",
       title:"CsPICO: A Unified Benchmark for Citation Screening in Systematic Reviews beyond Classification to Explain Exclusion Reasons",
       venue:"EMNLP 2026 Workshop · DocInsights",
       authors:"Yewon Choi, Hyun Do Jung, Dain Ji, Hwiyoung Kim†, Sungjun Kim†, Jaehyung Kim†",
-      desc:"458 systematic reviews and 6,795 papers with PICOS exclusion reasons; RA-F1 for right-decision, wrong-reason errors; cKATE retrieval.",
+      desc:"Scores whether an LLM excludes a paper for the right PICOS reason, not only whether the decision is right.",
       links:[{l:"OpenReview",u:"https://openreview.net/forum?id=4ZUO91Zvl9"},{l:"Code & Data",u:"https://anonymous.4open.science/r/systematic-review-datasets-with-reasons_cspico-D217/"}] },
-    { cat:"workshop", img:"assets/img/pubs/cdp.jpg",
-      title:"Cultural Divergence Preservation: Diagnosing Flattening and Caricature in LLM-Simulated Survey Populations",
-      venue:"EMNLP 2026 Workshop · PANDORA",
-      authors:"Yeeun Chae*, Yewon Choi*, Seunghyun Lee, Il Im†",
-      desc:"A metric for how much cross-country divergence LLM-simulated respondents preserve relative to human surveys.",
-      links:[{l:"arXiv",u:"https://arxiv.org/abs/2609.29928"}] },
-    { cat:"review", img:"assets/img/pubs/pisr.jpg",
+    { topic:"llm", kind:"paper", key:true, role:"Co-first author",
+      wide:true, img:"assets/img/pubs/pisr_thumb.jpg", full:"assets/img/pubs/pisr_full.jpg",
       title:"PISR: A Benchmark for Rationale-Based Pressure Injury Staging and a Lightweight Vision-Language Model",
-      venue:"Under Review · KOSAIM 2026 poster",
+      venue:"Under review",
       authors:"Yewon Choi*, Junyoung Lee*, Dongyoung Yoon*, Yeonju Kim, Taeyoon Park, Mona Choi†, Hwiyoung Kim†",
-      desc:"Nurse-corrected rationales and ORPO on MedGemma-4B: 81.8% staging accuracy (Gemini 3.1 Pro 70.0%) and a four-axis rationale score (PIRAS)." },
-    { cat:"review", img:"", thumb:"ICU · LLM",
-      title:"Predictive Performance and Reasoning Alignment of General-Purpose Large Language Models for Early Mortality Risk Stratification in Intensive Care: Multicohort Retrospective Evaluation Study",
-      venue:"Under Review",
-      authors:"Sungmin Cho*, Soojung Choi*, Yewon Choi, et al., Hyungchul Lee†, Hwiyoung Kim†" },
-    { cat:"journal", img:"assets/img/pubs/bladder.jpg",
-      title:"A Novel Radiomics-based Interpretable Model for Bladder Cancer Grade Prediction Using White-Light Cystoscopy Images",
-      venue:"European Urology Open Science · 2026",
-      authors:"Yewon Choi, Sang Wouk Cho, Junho Hong, Jongsoo Lee, Hwiyoung Kim†, Kwang Suk Lee†",
-      desc:"Two-hospital cystoscopy radiomics with SHAP and visual explanations; AUROC 0.87 internal, 0.79 external." },
-    { cat:"journal", img:"assets/img/pubs/liver.jpg",
+      desc:"Nurse-corrected rationales and preference tuning teach a 4B model to stage pressure injuries and explain why." },
+    { topic:"clinical", kind:"paper", key:true, role:"First author",
+      img:"assets/img/pubs/liver_thumb.jpg", full:"assets/img/pubs/liver_full.jpg",
       title:"Liver Cancer Risk Stratification Using Deep Learning on Nationwide Longitudinal Health Screening Data: A Retrospective Cohort Study",
       venue:"BMC Medical Informatics and Decision Making · 2026",
       authors:"Yewon Choi, Sungmin Cho, Changdai Gu, Chungho Kim, Bomi Park†, Hwiyoung Kim†",
-      desc:"3.96 million adults; temporal CNN + MLP fusion, AUROC 0.810 vs 0.552 for current surveillance criteria.",
+      desc:"Deep learning on screening records of 3.96 million adults identifies liver-cancer risk beyond current surveillance criteria.",
       links:[{l:"DOI",u:"https://doi.org/10.1186/s12911-025-03323-x"}] },
-    { cat:"journal", img:"", thumb:"TMLE · COHORT",
+    { topic:"clinical", kind:"paper", key:true, role:"First author",
+      img:"assets/img/pubs/bladder_thumb.jpg", full:"assets/img/pubs/bladder_full.jpg",
+      title:"A Novel Radiomics-based Interpretable Model for Bladder Cancer Grade Prediction Using White-Light Cystoscopy Images",
+      venue:"European Urology Open Science · 2026",
+      authors:"Yewon Choi, Sang Wouk Cho, Junho Hong, Jongsoo Lee, Hwiyoung Kim†, Kwang Suk Lee†",
+      desc:"Interpretable cystoscopy radiomics for tumour grade, externally validated at a second hospital.",
+      links:[{l:"DOI",u:"https://doi.org/10.1016/j.euros.2026.03.018"}] },
+    { topic:"llm", kind:"paper", role:"Co-first author",
+      wide:true, img:"assets/img/pubs/cdp_thumb.jpg", full:"assets/img/pubs/cdp_full.jpg",
+      title:"Cultural Divergence Preservation: Diagnosing Flattening and Caricature in LLM-Simulated Survey Populations",
+      venue:"EMNLP 2026 Workshop · PANDORA",
+      authors:"Yeeun Chae*, Yewon Choi*, Seunghyun Lee, Il Im†",
+      links:[{l:"arXiv",u:"https://arxiv.org/abs/2609.29928"}] },
+    { topic:"llm", kind:"paper",
+      wide:true, img:"assets/img/pubs/icu_thumb.jpg", full:"assets/img/pubs/icu_full.jpg",
+      title:"Predictive Performance and Reasoning Alignment of General-Purpose Large Language Models for Early Mortality Risk Stratification in Intensive Care: Multicohort Retrospective Evaluation Study",
+      venue:"Under review",
+      authors:"Sungmin Cho*, Soojung Choi*, Yewon Choi, et al., Hyungchul Lee†, Hwiyoung Kim†" },
+    { topic:"clinical", kind:"paper",
+      img:"assets/img/pubs/gastric_thumb.jpg", full:"assets/img/pubs/gastric_full.jpg",
       title:"Alcohol amount, drinking patterns, and gastric cancer risk: a nationwide study using targeted maximum likelihood estimation",
       venue:"European Journal of Epidemiology · 2026",
-      authors:"Chungho Kim, Byungmi Kim, Hye Ah Lee, Yewon Choi, Hwiyoung Kim†, Bomi Park†" },
-    { cat:"journal", img:"", thumb:"3D BODY SCANNER",
+      authors:"Chungho Kim, Byungmi Kim, Hye Ah Lee, Yewon Choi, Hwiyoung Kim†, Bomi Park†",
+      links:[{l:"DOI",u:"https://doi.org/10.1007/s10654-026-01452-9"}] },
+    { topic:"clinical", kind:"paper", role:"First author",
       title:"An Analysis of Healthcare Application Research and Standardization Trends on 3D Body Scanner",
       venue:"J. Society for Standards Certification and Safety · 2023 (KCI)",
       authors:"Yewon Choi, Jisu Hong, Jungwon Kim, Jongsoo Han†, Young Huh†" },
-    { cat:"abstract", img:"", thumb:"EAU 2026",
+    { topic:"clinical", kind:"abstract", role:"First author",
+      img:"assets/img/pubs/eau_thumb.jpg", full:"assets/img/pubs/eau_full.jpg",
       title:"A Visually Interpretable Radiomics Model for Bladder Cancer Grading Using White-Light Cystoscopy Images",
-      venue:"EAU Congress 2026 · European Urology abstract",
-      authors:"Yewon Choi, Sang Wouk Cho, Junho Hong, Jongsoo Lee, Hwiyoung Kim†, Kwang Suk Lee†" },
-    { cat:"abstract", img:"", thumb:"3DBODY.TECH",
+      venue:"EAU Congress 2026 · European Urology",
+      authors:"Yewon Choi, Sang Wouk Cho, Junho Hong, Jongsoo Lee, Hwiyoung Kim†, Kwang Suk Lee†",
+      links:[{l:"DOI",u:"https://doi.org/10.1016/s0302-2838(26)01511-3"}] },
+    { topic:"clinical", kind:"abstract",
       title:"A Comparative Study of the Sagittal and Coronal Plane Balance of the Spine Measured Using a 3D Full Body Scanner and Spine X-Ray",
       venue:"3DBODY.TECH · 2023",
       authors:"Tae Hoon Kang, Minseok Choi, Yewon Choi, Jungwon Kim, Jae Hyup Lee†, Yohan Lee†, Minjoon Cho†" },
   ],
 
-  booksPatents: [
-    { h:"Apparatus, Method, and Computer-Readable Medium for the Visual Explanation of Bladder Cancer Grade Prediction",
-      m:"Kwang Suk Lee, Sang Wouk Cho, Jongsoo Lee, Hwiyoung Kim, <b>Yewon Choi</b> · Korean patent application 10-2025-0130194 (2025)" },
-    { h:"Everything About Medical Imaging AI, Part I: From Development Environment Setup to Machine-Learning Model Development",
-      m:'Sang Wouk Cho, <b>Yewon Choi</b>, Junho Hong, Hyundo Jung · WikiDocs e-book (2025) · <a href="https://wikidocs.net/book/10449" target="_blank" rel="noopener">wikidocs.net/book/10449</a>' },
-  ],
-  honors: [
-    { h:"Best Poster Presentation Award, LLM &amp; Agent Track, KOSAIM 2025",
-      m:"“Developing an Early Mortality Prediction Model for ICU Patients Using LLM-Based Approaches”" },
-    { h:"7th Place, AOCR 2024 AI Challenge (second stage)",
-      m:"Kaggle competition on acute appendicitis classification from contrast-enhanced CT" },
-  ],
-  teaching: [
-    { h:"Teaching Assistant, Yonsei University", m:"Medical Image Processing (MRA7003, Spring 2024) · Introduction to AI in Medicine (MRA7008, Fall 2023) · Topics in Medical Radiation Physics (MRA7002, Spring 2023)" },
+  awards: [
+    { d:"2025", t:"<b>Best Poster Presentation Award</b>, LLM &amp; Agent Track, KOSAIM 2025" },
+    { d:"2024", t:"<b>7th Place</b>, AOCR 2024 AI Challenge (Kaggle; appendicitis classification from CT)" },
   ],
   footer: "© 2026 Yewon Choi · Last updated October 2026",
 };
@@ -268,54 +243,48 @@ document.getElementById("side").innerHTML = `
   </div>
   <a class="btn dark" href="${SITE.cv}" target="_blank" rel="noopener">${svg("cv")}Curriculum Vitae</a>
   <a class="btn light" href="${SITE.scholar}" target="_blank" rel="noopener">${svg("scholar")}Google Scholar</a>
-  <div class="status">${SITE.status}</div>
   <div class="side-h">EDUCATION</div>
-  ${SITE.education.map(e => `<div class="edu"><div class="d">${e.d}</div><div class="o">${e.o}</div><div class="w">${e.w}</div></div>`).join("")}
-  <div class="side-h">CONTENTS</div>
-  <nav class="toc">${["About","News","Experience","Publications","Patents & Books","Awards","Teaching"]
-     .map(t => `<a href="#${t.split(" ")[0].toLowerCase()}">${t}</a>`).join("<br>")}</nav>`;
+  ${SITE.education.map(e => `<div class="edu"><div class="d">${e.d}</div><div class="o">${e.o}</div><div class="w">${e.w}</div></div>`).join("")}`;
 
-const CATS = [["all","All"],["journal","Journal"],["workshop","EMNLP Workshop"],["review","Under Review"],["abstract","Abstracts"]];
 const pubCard = p => `
-  <article class="pub reveal" data-cat="${p.cat}">
-    <div class="thumb${p.img ? " has-img" : ""}">${p.img ? `<img src="${p.img}" alt="" loading="lazy">` : `<span>${p.thumb || ""}</span>`}</div>
+  <article class="pub reveal${p.key ? " key" : ""}${p.img ? "" : " noimg"}${p.wide ? " wide" : ""}" data-topic="${p.topic}">
+    ${p.img ? `<a class="thumb" href="${p.full || p.img}" target="_blank" rel="noopener" aria-label="Open figure"><img src="${p.img}" alt="Representative figure: ${p.title}" loading="lazy"></a>` : ""}
     <div>
       <h3>${p.title}</h3>
-      <div class="venue">${p.venue}</div>
+      <div class="badges"><span class="venue">${p.venue}</span>${p.role ? `<span class="role">${p.role}</span>` : ""}</div>
       <div class="authors">${me(p.authors)}</div>
       ${p.desc ? `<div class="desc">${p.desc}</div>` : ""}
       ${p.links ? `<div class="links">${p.links.map(l => `<a href="${l.u}"${ext(l.u)}>${l.l}</a>`).join("")}</div>` : ""}
     </div>
   </article>`;
-const list = items => `<ul class="list">${items.map(i => `<li class="reveal"><div class="h">${i.h}</div><div class="m">${i.m}</div></li>`).join("")}</ul>`;
+const papers = SITE.publications.filter(p => p.kind === "paper");
+const abstracts = SITE.publications.filter(p => p.kind === "abstract");
 
 document.getElementById("main").innerHTML = `
   <section id="about" class="reveal"><h2>About Me</h2>
     ${SITE.about.map(p => `<p>${p}</p>`).join("")}
-    <p class="callout">${SITE.callout}</p>
-    <div class="meta-row">${SITE.meta.map(m => `<span>${m}</span>`).join("")}</div>
+    <div class="seek">${SITE.seek}</div>
   </section>
-  <section id="news"><h2>Latest News</h2>
+  <section id="news"><h2>News</h2>
     <ul class="news">${SITE.news.map(n => `<li class="reveal"><span class="dt">${n.d}</span><span>${n.t}</span></li>`).join("")}</ul>
   </section>
-  <section id="experience"><h2>Research Experience</h2>
-    <ul class="tl">${SITE.experience.map(e => `<li class="reveal"><div class="when">${e.w}</div><div class="org">${e.org}</div><div class="pos">${e.pos}</div><div class="note">${e.note}</div></li>`).join("")}</ul>
-  </section>
   <section id="publications"><h2>Publications</h2>
-    <div class="chips">${CATS.map(([k,l],i) => `<button type="button" data-k="${k}" class="${i?"":"on"}">${l}</button>`).join("")}</div>
-    <p class="note-eq">* equal contribution · † corresponding author</p>
-    <div id="pubs">${SITE.publications.map(pubCard).join("")}</div>
+    <div class="chips">${SITE.topics.map(([k,l],i) => `<button type="button" data-k="${k}" class="${i?"":"on"}">${l}</button>`).join("")}</div>
+    <p class="note-eq">* equal contribution · † corresponding author · click a figure to enlarge · full list on <a href="${SITE.scholar}" target="_blank" rel="noopener">Google Scholar</a></p>
+    <div id="pubs">${papers.map(pubCard).join("")}
+      <div class="sub" data-sub>Conference abstracts</div>${abstracts.map(pubCard).join("")}</div>
   </section>
-  <section id="patents"><h2>Patents &amp; Books</h2>${list(SITE.booksPatents)}</section>
-  <section id="awards"><h2>Honors &amp; Awards</h2>${list(SITE.honors)}</section>
-  <section id="teaching"><h2>Teaching</h2>${list(SITE.teaching)}</section>`;
+  <section id="awards"><h2>Awards</h2>
+    <ul class="awards">${SITE.awards.map(a => `<li class="reveal"><span class="dt">${a.d}</span><span>${a.t}</span></li>`).join("")}</ul>
+  </section>`;
 document.getElementById("foot").textContent = SITE.footer;
 
 document.querySelectorAll(".chips button").forEach(b => b.addEventListener("click", () => {
   document.querySelectorAll(".chips button").forEach(x => x.classList.toggle("on", x === b));
-  document.querySelectorAll("#pubs .pub").forEach(p => {
-    p.style.display = (b.dataset.k === "all" || p.dataset.cat === b.dataset.k) ? "" : "none";
-  });
+  const k = b.dataset.k;
+  document.querySelectorAll("#pubs .pub").forEach(p => { p.style.display = (k === "all" || p.dataset.topic === k) ? "" : "none"; });
+  const anyAbs = [...document.querySelectorAll('#pubs .pub')].some(p => abstracts.some(a => p.querySelector("h3").innerHTML === a.title) && p.style.display !== "none");
+  document.querySelector("[data-sub]").style.display = anyAbs ? "" : "none";
 }));
 const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }),
                                     { threshold: 0.08 });
