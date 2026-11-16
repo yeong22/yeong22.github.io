@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Yewon Choi</title>
-<meta name="description" content="Yewon Choi, Ph.D. candidate at Yonsei University College of Medicine, building trustworthy and auditable medical AI." />
+<meta name="description" content="Yewon Choi, Ph.D. candidate at Yonsei University College of Medicine, working on safe and auditable medical AI." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -62,6 +62,8 @@
   h2{display:flex;align-items:center;gap:14px;font-size:21px;color:var(--ink);margin:0 0 16px;font-weight:700;}
   h2::after{content:"";flex:1;height:1px;background:var(--line);}
   p{margin:0 0 12px;}
+  .interests{margin:0 0 16px;padding-left:22px;}
+  .interests li{margin:4px 0;}
   .seek{display:inline-block;margin-top:2px;padding:8px 14px;border-radius:8px;background:var(--soft);border:1px solid var(--soft-line);
         color:var(--navy);font-size:14.5px;}
 
@@ -120,7 +122,7 @@ const SITE = {
   affiliation: "Yonsei University College of Medicine",
   lab: { name:"Translational AI Lab (tAILab)", url:"https://sites.google.com/view/tailab" },
   email: "yewon0126@yonsei.ac.kr",
-  topic: "Trustworthy & Auditable Medical AI",
+  topic: "Safe & Auditable Medical AI",
   photo: "assets/img/profile.jpg",
   cv: "assets/files/YewonChoi_CV.pdf",
   scholar: "https://scholar.google.com/citations?hl=en&user=DFJ7HgkAAAAJ",
@@ -136,7 +138,13 @@ const SITE = {
   ],
 
   about: [
-    "I am a Ph.D. candidate in Integrative Medicine at <b>Yonsei University College of Medicine</b>, advised by Prof. Sungjun Kim and Prof. Hwiyoung Kim, and an AI Researcher at <b>Severance Hospital</b>. I build <b>trustworthy and auditable medical AI</b>: benchmarks, metrics and LLM agents that check whether a model's decision rests on the right evidence. My recent work covers reason-aware screening for systematic reviews (CsPICO), rationale-grounded wound staging with a compact vision-language model (PISR), and clinical risk models validated on nationwide cohorts and multi-hospital imaging.",
+    "My research goal is to develop <b>safe and auditable medical AI</b> systems for real-world clinical applications. Recently, my research has focused on large language models (LLMs) and clinical AI, including but not limited to the following topics:",
+  ],
+  interests: [
+    "Safety and alignment of medical AI",
+    "Multi-agent systems for medical document processing (e.g., systematic reviews)",
+    "Benchmarks and evaluation metrics for clinical texts",
+    "Clinical decision support systems using large-scale EHR and imaging data",
   ],
   seek: "I am looking for a postdoctoral position starting <b>March 2027</b>.",
 
@@ -268,8 +276,9 @@ const papers = SITE.publications.filter(p => p.kind === "paper");
 const abstracts = SITE.publications.filter(p => p.kind === "abstract");
 
 document.getElementById("main").innerHTML = `
-  <section id="about" class="reveal"><h2>About Me</h2>
+  <section id="about" class="reveal"><h2>Research Interest</h2>
     ${SITE.about.map(p => `<p>${p}</p>`).join("")}
+    <ul class="interests">${SITE.interests.map(t => `<li>${t}</li>`).join("")}</ul>
     <div class="seek">${SITE.seek}</div>
   </section>
   <section id="news"><h2>News</h2>
